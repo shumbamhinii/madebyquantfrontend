@@ -11,7 +11,7 @@ import { Users, Heart, FileText, BarChart3, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 
-const API_BASE_URL = 'https://qxbeta.onrender.com:3000';
+const API_BASE_URL = 'https://madebyquantbackend.onrender.com';
 
 interface StatResponse {
   count?: number;

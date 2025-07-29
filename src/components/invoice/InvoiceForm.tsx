@@ -86,7 +86,7 @@ interface InvoiceFormProps {
   onSubmitSuccess: () => void;
 }
 
-const API_BASE_URL = 'http://localhost:3000'; // Define your API base URL
+const API_BASE_URL = 'https://madebyquantbackend.onrender.com'; // Define your API base URL
 
 const generateInvoiceNumber = () => {
   const now = new Date();

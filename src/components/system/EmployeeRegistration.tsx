@@ -91,7 +91,7 @@ const EmployeeRegistration: React.FC<EmployeeRegistrationProps> = ({ onClose, on
     };
 
     try {
-      const response = await fetch('http://localhost:3000/employees', {
+      const response = await fetch('https://madebyquantbackend.onrender.com/employees', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

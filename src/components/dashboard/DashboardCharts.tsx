@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'https://qxbeta.onrender.com:3000';
 
 interface RevenueDataPoint {
   month: string;

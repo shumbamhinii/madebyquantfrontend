@@ -93,7 +93,7 @@ const Transactions = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:3000/transactions?${queryParams.toString()}`);
+      const response = await fetch(`https://madebyquantbackend.onrender.com/transactions?${queryParams.toString()}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -112,7 +112,7 @@ const Transactions = () => {
 
   // Fetch accounts only once on mount
   useEffect(() => {
-    fetch('http://localhost:3000/accounts')
+    fetch('https://madebyquantbackend.onrender.com/accounts')
       .then(res => res.json())
       .then(data => setAccounts(data))
       .catch(console.error);
@@ -152,7 +152,7 @@ const Transactions = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:3000/transactions/manual`, {
+      const response = await fetch(`https://madebyquantbackend.onrender.com/transactions/manual`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

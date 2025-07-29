@@ -588,7 +588,7 @@ const EditableTransactionTable = ({ transactions: initialTransactions, accounts,
 // --- Main ChatInterface Component ---
 const ChatInterface = () => {
   const RAIRO_API_BASE_URL = 'https://rairo-stmt-api.hf.space';
-  const API_BASE_URL = 'http://localhost:3000';
+  const API_BASE_URL = 'https://madebyquantbackend.onrender.com';
 
   const [messages, setMessages] = useState<Array<{ id: string; sender: string; content: string | JSX.Element }>>([]);
   const [accounts, setAccounts] = useState<Account[]>([]);
@@ -646,7 +646,7 @@ const ChatInterface = () => {
       } catch (error) {
         console.error('Failed to fetch accounts:', error);
         setAccounts([]);
-        addAssistantMessage('Failed to load accounts. Please ensure your backend server is running at `http://localhost:3000`.');
+        addAssistantMessage('Failed to load accounts. Please ensure your backend server is running at `https://madebyquantbackend.onrender.com`.');
       } finally {
         setIsLoadingAccounts(false);
       }

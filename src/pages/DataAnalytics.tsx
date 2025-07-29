@@ -34,12 +34,12 @@ const DataAnalytics = () => {
           invoicesRes,
           customersRes,
         ] = await Promise.all([
-          fetch('http://localhost:3000/api/charts/revenue-trend'),
-          fetch('http://localhost:3000/api/charts/transaction-volume'),
-          fetch('http://localhost:3000/transactions?filter=expense'), // Assuming /transactions returns expenses with category
-          fetch('http://localhost:3000/products-services'), // Corrected endpoint
-          fetch('http://localhost:3000/api/invoices'),
-          fetch('http://localhost:3000/api/customers'),
+          fetch('https://madebyquantbackend.onrender.com/api/charts/revenue-trend'),
+          fetch('https://madebyquantbackend.onrender.com/api/charts/transaction-volume'),
+          fetch('https://madebyquantbackend.onrender.com/transactions?filter=expense'), // Assuming /transactions returns expenses with category
+          fetch('https://madebyquantbackend.onrender.com/products-services'), // Corrected endpoint
+          fetch('https://madebyquantbackend.onrender.com/api/invoices'),
+          fetch('https://madebyquantbackend.onrender.com/api/customers'),
         ]);
 
         if (!revenueTrendRes.ok) throw new Error('Failed to fetch revenue trend data');

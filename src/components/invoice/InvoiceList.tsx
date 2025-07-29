@@ -34,7 +34,7 @@ import {
 import { InvoiceForm } from './InvoiceForm';
 import { useToast } from '@/components/ui/use-toast';
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'https://madebyquantbackend.onrender.com';
 
 interface InvoiceLineItem {
     id?: string;

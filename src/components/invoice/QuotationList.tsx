@@ -47,7 +47,7 @@ import { QuotationForm } from './QuotationForm'; // Ensure this path is correct
 import { useToast } from '@/components/ui/use-toast'; // Import useToast
 
 // Define API Base URL
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'https://madebyquantbackend.onrender.com';
 
 // --- Interfaces to match backend API responses for Quotations ---
 interface QuotationLineItem {

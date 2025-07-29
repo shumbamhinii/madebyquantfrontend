@@ -89,7 +89,7 @@ interface Column {
 const staticColumns: Column[] = [
   { id: 'todo', title: 'To Do', color: 'bg-gray-50', tasks: [] },
   { id: 'inprogress', title: 'In Progress', color: 'bg-blue-50', tasks: [] },
-  { id: 'review', title: 'Review', color: 'bg-yellow-50', tasks: [] },
+ 
   { id: 'done', title: 'Done', color: 'bg-green-50', tasks: [] },
 ];
 
@@ -124,8 +124,7 @@ export function KanbanBoard() {
   const getStatusFromProgress = (progress: number): Task['status'] => {
     if (progress === 100) {
       return 'Done';
-    } else if (progress >= 75) {
-      return 'Review';
+
     } else if (progress >= 25) {
       return 'In Progress';
     } else {
@@ -140,8 +139,6 @@ export function KanbanBoard() {
         return 'todo';
       case 'In Progress':
         return 'inprogress';
-      case 'Review':
-        return 'review';
       case 'Done':
         return 'done';
       default:
@@ -175,7 +172,7 @@ export function KanbanBoard() {
     setIsLoading(true);
     try {
       // Fetch projects first
-      const projectsResponse = await fetch('http://localhost:3000/api/projects');
+      const projectsResponse = await fetch('https://madebyquantbackend.onrender.com/api/projects');
       if (!projectsResponse.ok) {
         throw new Error(`HTTP error! status: ${projectsResponse.status}`);
       }
@@ -183,7 +180,7 @@ export function KanbanBoard() {
       setProjects(projectsData);
 
       // Fetch tasks
-      const tasksResponse = await fetch('http://localhost:3000/api/tasks');
+      const tasksResponse = await fetch('https://madebyquantbackend.onrender.com/api/tasks');
       if (!tasksResponse.ok) {
         throw new Error(`HTTP error! status: ${tasksResponse.status}`);
       }
@@ -273,7 +270,7 @@ export function KanbanBoard() {
       const statusMap: Record<string, Task['status']> = {
         todo: 'To Do',
         inprogress: 'In Progress',
-        review: 'Review',
+        
         done: 'Done',
       };
 
@@ -300,7 +297,7 @@ export function KanbanBoard() {
 
       try {
         // API call to update task status
-        const response = await fetch(`http://localhost:3000/api/tasks/${activeTask.id}`, {
+        const response = await fetch(`https://madebyquantbackend.onrender.com/api/tasks/${activeTask.id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -363,7 +360,7 @@ export function KanbanBoard() {
     );
 
     try {
-      const response = await fetch('http://localhost:3000/api/tasks', {
+      const response = await fetch('https://madebyquantbackend.onrender.com/api/tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -404,7 +401,7 @@ export function KanbanBoard() {
     const statusFromProgress = getStatusFromProgress(taskData.progress_percentage);
 
     try {
-      const response = await fetch(`http://localhost:3000/api/tasks/${taskToEdit.id}`, {
+      const response = await fetch(`https://madebyquantbackend.onrender.com/api/tasks/${taskToEdit.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -437,7 +434,7 @@ export function KanbanBoard() {
 
   const handleDeleteTask = async (taskId: string) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/tasks/${taskId}`, {
+      const response = await fetch(`https://madebyquantbackend.onrender.com/api/tasks/${taskId}`, {
         method: 'DELETE',
       });
 
@@ -461,7 +458,7 @@ export function KanbanBoard() {
 
   const handleSaveNewProject = async (projectData: ProjectFormData) => {
     try {
-      const response = await fetch('http://localhost:3000/api/projects', {
+      const response = await fetch('https://madebyquantbackend.onrender.com/api/projects', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -492,7 +489,7 @@ export function KanbanBoard() {
     if (!activeProject) return;
 
     try {
-      const response = await fetch(`http://localhost:3000/api/projects/${activeProject.id}`, {
+      const response = await fetch(`https://madebyquantbackend.onrender.com/api/projects/${activeProject.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -523,7 +520,7 @@ export function KanbanBoard() {
     if (!projectToDelete) return;
 
     try {
-      const response = await fetch(`http://localhost:3000/api/projects/${projectToDelete.id}`, {
+      const response = await fetch(`https://madebyquantbackend.onrender.com/api/projects/${projectToDelete.id}`, {
         method: 'DELETE',
       });
 
@@ -706,7 +703,7 @@ export function KanbanBoard() {
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {columns.map((column, columnIndex) => {
               const { setNodeRef, isOver } = droppableRefs.current[column.id];
 

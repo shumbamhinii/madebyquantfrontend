@@ -54,7 +54,7 @@ interface CustomerSaveData {
   vatNumber?: string; // Corresponds to tax_id
 }
 
-const API_BASE_URL = 'http://localhost:3000'; // Your backend server URL and port
+const API_BASE_URL = 'https://madebyquantbackend.onrender.com'; // Your backend server URL and port
 
 export function CustomerManagement() {
   const [customers, setCustomers] = useState<Customer[]>([]);

@@ -91,7 +91,7 @@ const TimeTracking: React.FC<TimeTrackingProps> = ({
       let allEntries: TimeEntry[] = [];
       for (const employee of employees) {
         try {
-          const response = await fetch(`http://localhost:3000/employees/${employee.id}/time-entries`);
+          const response = await fetch(`https://madebyquantbackend.onrender.com/employees/${employee.id}/time-entries`);
           if (!response.ok) {
             console.warn(`Failed to fetch time entries for employee ${employee.id}: ${response.status}`);
             continue; // Skip to next employee if fetch fails
@@ -130,7 +130,7 @@ const TimeTracking: React.FC<TimeTrackingProps> = ({
       console.log("2. Sending payload to backend:", payload); // Debugging log
 
       // CORRECTED: Use the backend's expected endpoint structure
-      const response = await fetch(`http://localhost:3000/employees/${values.employeeId}/time-entries`, {
+      const response = await fetch(`https://madebyquantbackend.onrender.com/employees/${values.employeeId}/time-entries`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -168,7 +168,7 @@ const TimeTracking: React.FC<TimeTrackingProps> = ({
     setIsLoading(true); // Set loading for the table/overall operation
     try {
       // Step 1: Update Time Entry status in backend
-      const timeEntryUpdateResponse = await fetch(`http://localhost:3000/time-entries/${entryId}`, {
+      const timeEntryUpdateResponse = await fetch(`https://madebyquantbackend.onrender.com/time-entries/${entryId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -190,7 +190,7 @@ const TimeTracking: React.FC<TimeTrackingProps> = ({
       const newHoursWorkedTotal = (employee.hours_worked_total ?? 0) + hoursWorked;
 
       // Note: Backend expects 'hoursWorked' (camelCase) for employee update
-      const employeeUpdateResponse = await fetch(`http://localhost:3000/employees/${employeeId}`, {
+      const employeeUpdateResponse = await fetch(`https://madebyquantbackend.onrender.com/employees/${employeeId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -219,7 +219,7 @@ const TimeTracking: React.FC<TimeTrackingProps> = ({
   const handleRejectEntry = async (entryId: string) => {
     setIsLoading(true);
     try {
-      const response = await fetch(`http://localhost:3000/time-entries/${entryId}`, {
+      const response = await fetch(`https://madebyquantbackend.onrender.com/time-entries/${entryId}`, {
         method: 'DELETE'
       });
 

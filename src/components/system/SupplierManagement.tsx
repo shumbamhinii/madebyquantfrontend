@@ -59,7 +59,7 @@ interface SupplierSaveData extends Omit<Supplier, 'id' | 'totalPurchased' | 'sou
   // For this unified view, we assume /api/suppliers is the primary write target.
 }
 
-const API_BASE_URL = 'http://localhost:3000'; // Your backend server URL and port
+const API_BASE_URL = 'https://madebyquantbackend.onrender.com'; // Your backend server URL and port
 
 export function SupplierManagement() {
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);

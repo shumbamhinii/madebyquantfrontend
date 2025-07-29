@@ -94,21 +94,21 @@ const Accounting = () => {
 
 
   const fetchAssets = () => {
-    fetch('http://localhost:3000/assets')
+    fetch('https://madebyquantbackend.onrender.com/assets')
       .then(res => res.json())
       .then(data => setAssets(data))
       .catch(console.error);
   };
 
   const fetchExpenses = () => {
-    fetch('http://localhost:3000/expenses')
+    fetch('https://madebyquantbackend.onrender.com/expenses')
       .then(res => res.json())
       .then(data => setExpenses(data))
       .catch(console.error);
   };
 
   const fetchAccounts = () => {
-    fetch('http://localhost:3000/accounts')
+    fetch('https://madebyquantbackend.onrender.com/accounts')
       .then(res => res.json())
       .then(data => setAccounts(data))
       .catch(console.error);
@@ -142,15 +142,15 @@ const Accounting = () => {
     let errorMessage = '';
 
     if (type === 'asset') {
-      url = `http://localhost:3000/assets/${id}`;
+      url = `https://madebyquantbackend.onrender.com/assets/${id}`;
       successMessage = 'Asset deleted successfully!';
       errorMessage = 'Failed to delete asset.';
     } else if (type === 'expense') {
-      url = `http://localhost:3000/expenses/${id}`;
+      url = `https://madebyquantbackend.onrender.com/expenses/${id}`;
       successMessage = 'Expense deleted successfully!';
       errorMessage = 'Failed to delete expense.';
     } else if (type === 'account') {
-      url = `http://localhost:3000/accounts/${id}`;
+      url = `https://madebyquantbackend.onrender.com/accounts/${id}`;
       successMessage = 'Account deleted successfully!';
       errorMessage = 'Failed to delete account.';
     }
@@ -214,10 +214,10 @@ const Accounting = () => {
         };
 
         if (formData.id) { // Editing existing asset
-          url = `http://localhost:3000/assets/${formData.id}`;
+          url = `https://madebyquantbackend.onrender.com/assets/${formData.id}`;
           method = 'PUT';
         } else { // Adding new asset
-          url = 'http://localhost:3000/assets';
+          url = 'https://madebyquantbackend.onrender.com/assets';
           method = 'POST';
         }
       } else if (modalType === 'expense') {
@@ -240,10 +240,10 @@ const Accounting = () => {
           account_id: formData.account_id,
         };
         if (formData.id) { // Editing existing expense
-          url = `http://localhost:3000/expenses/${formData.id}`;
+          url = `https://madebyquantbackend.onrender.com/expenses/${formData.id}`;
           method = 'PUT';
         } else { // Adding new expense
-          url = 'http://localhost:3000/expenses';
+          url = 'https://madebyquantbackend.onrender.com/expenses';
           method = 'POST';
         }
       } else if (modalType === 'account') {
@@ -257,10 +257,10 @@ const Accounting = () => {
           code: formData.code,
         };
         if (formData.id) { // Editing existing account
-          url = `http://localhost:3000/accounts/${formData.id}`;
+          url = `https://madebyquantbackend.onrender.com/accounts/${formData.id}`;
           method = 'PUT';
         } else { // Adding new account
-          url = 'http://localhost:3000/accounts';
+          url = 'https://madebyquantbackend.onrender.com/accounts';
           method = 'POST';
         }
       }
@@ -291,7 +291,7 @@ const Accounting = () => {
   const handleRunDepreciation = async () => {
     setIsDepreciating(true);
     try {
-      const response = await fetch('http://localhost:3000/api/depreciation/run', {
+      const response = await fetch('https://madebyquantbackend.onrender.com/api/depreciation/run', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ endDate: depreciationEndDate }),

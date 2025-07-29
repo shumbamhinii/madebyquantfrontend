@@ -19,9 +19,9 @@ const { TextArea } = Input
 
 export function ProfileForm () {
   const [formData, setFormData] = useState({
-    firstName: 'Zhou',
-    lastName: 'Helper',
-    email: 'zhou.helper@quantilytix.com',
+    firstName: 'Chris',
+    lastName: 'Mpilo',
+    email: 'chrismpilo@gmail.com',
     phone: '+27 123 456 789',
     company: 'Quantilytix',
     position: 'Data Analyst',
@@ -32,7 +32,7 @@ export function ProfileForm () {
     country: 'South Africa',
     bio: 'Passionate about data analysis and business intelligence.',
     website: 'https://quantilytix.com',
-    linkedin: 'https://linkedin.com/in/zhouhelper',
+    linkedin: 'https://linkedin.com/in/chrismpilo',
     timezone: 'Africa/Johannesburg',
     language: 'English',
     currency: 'ZAR'
@@ -61,7 +61,7 @@ export function ProfileForm () {
             <div className='flex items-center space-x-4'>
               <Avatar className='h-20 w-20'>
                 <AvatarImage src='/placeholder.svg' />
-                <AvatarFallback>ZH</AvatarFallback>
+                <AvatarFallback>CM</AvatarFallback>
               </Avatar>
               <Button variant='outline' size='sm'>
                 <Camera className='h-4 w-4 mr-2' />
